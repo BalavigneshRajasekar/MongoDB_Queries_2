@@ -1,6 +1,4 @@
 # MongoDB_Queries_2
-
-# MongoDB_Queries_2
 #### Find all the topics and tasks which are thought in the month of October
 db.tasks.aggregate({$lookup:{from:"topics",localField:"id",foreignField:"id",as:"topic"}},{$unwind:{path:"$topic"}},{$match:{$and:[{date:{$gte:"2020-10-01",$lt:"2020-11-01"}},{"topic.date":{$gte:"2020-10-01",$lt:"2020-11-01"}}]}})
 
